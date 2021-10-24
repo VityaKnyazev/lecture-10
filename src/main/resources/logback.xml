@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false" scan="true"	scanPeriod="30 seconds">
+	
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%d{dd.MM.yyyy HH:mm:ss.SSS} [%thread] [%level] %logger{20} - %msg%n</pattern>
+		</encoder>
+	</appender>
+
+	<appender name="FILE" class="ch.qos.logback.core.FileAppender">
+		<file>src/main/resources/logs/appLogging.log</file>
+
+		<encoder>
+			<pattern>%d %logger{10} %level [%thread] [%file:%line] %msg%n</pattern>
+		</encoder>
+	</appender>
+	
+	<logger name="by.itacademy.javaenterprise.knyazev.db.DbConnection" level="INFO" additivity="false">
+		<appender-ref ref="FILE" />
+	</logger>
+	
+	<logger name="by.itacademy.javaenterprise.knyazev.queries.Saver" level="INFO" additivity="false">
+		<appender-ref ref="FILE" />
+	</logger>
+	
+	<logger name="by.itacademy.javaenterprise.knyazev.queries.Selecter" level="INFO" additivity="false">
+		<appender-ref ref="FILE" />
+	</logger>
+
+	<root level="INFO">
+		<appender-ref ref="STDOUT" />
+	</root>
+</configuration>
